@@ -1,0 +1,21 @@
+.taskForm {
+  display: flex;
+  gap: 1rem;
+  margin-top: 5rem;
+
+  input {
+    background-color: transparent;
+    border-radius: var(--app-border-radius);
+    border: 1px solid var(--app-color-border);
+    padding: 0.25rem 0.5rem;
+  }
+
+  button {
+    background-color: var(--app-color-accent);
+    border: none;
+    border-radius: var(--app-border-radius);
+    color: var(--app-color-alt);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+  }
+}
