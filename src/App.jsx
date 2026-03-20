@@ -6,13 +6,15 @@ import TaskForm from "./components/TaskForm/taskForm";
 
 function App() {
   const handleTaskClick = (id) => {
-    setTasks(
-      tasks.map(task =>
-        task.id === id
-          ? { ...task, completed: !task.completed }
-          : task
-      )
+    const newTasks = tasks.map(task =>
+      task.id === id
+       ? {...task, completed: !task.completed }
+        : task
     );
+
+    setTasks(newTasks);
+
+    localStorage.setItem("tasks", JSON.stringify(newTasks));
   };
 
   const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
