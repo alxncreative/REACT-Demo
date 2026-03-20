@@ -15,7 +15,9 @@ function App() {
     );
   };
 
-  const [tasks, setTasks] = useState([]);
+  const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+  const [tasks, setTasks] = useState(savedTasks);
   const [newTaskText, setNewTaskText] = useState("");
 
   const handleNewTaskSubmit = (event) => {
@@ -28,15 +30,43 @@ function App() {
       return;
     }
 
-    setTasks([
-      ...tasks,
-      { id: newId, taskText: taskLabel, completed: false },
-    ]);
+    const newTasks = [...tasks, { id: newId, taskText: taskLabel, completed: false, isUpdating: false }];
+
+    setTasks(newTasks);
+
+    localStorage.setItem("tasks", JSON.stringify(newTasks));
 
     event.target.elements.taskLabel.value="";
 
     setNewTaskText("");
   };
+
+  const handleTaskDelete = (id) => {
+    const updatedTasks = tasks.filter(task => task.id !== id);
+    setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+  };
+
+  const [editId, setEditId] = useState(null);
+
+  const editStart = (id) => {
+    setEditId(id);
+  }
+
+  const handleTaskUpdate = (id, newText) => {
+    const updatedTasks = tasks.map(task =>
+      task.id === id
+       ? {...task, taskText: newText }
+        : task
+    );
+
+    setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+  };
+
+  const editEnd = (id) => {
+    setEditId(null);
+  }
 
   return (
     <>
@@ -53,9 +83,15 @@ function App() {
             {tasks.map((task) => (
               <Task
                 key={task.id}
+                id={task.id}
                 taskText={task.taskText}
                 onSelect={() => handleTaskClick(task.id)}
+                onDelete={() => handleTaskDelete(task.id)}
+                onTextClick={() => editStart(task.id)}
+                onChange={(e) => handleTaskUpdate(task.id, e.target.value)}
+                onBlur={() => editEnd(task.id) }
                 completed={task.completed}
+                isUpdating={editId === task.id}
               />
             ))}
           </TaskList>
