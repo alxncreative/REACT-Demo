@@ -11,30 +11,44 @@
   padding: 0.5rem 1rem;
 }
 
-.isPrimary {
+.isStylePrimary {
 	--btn-background: var(--app-color-accent);
 	--btn-border-color: var(--app-color-accent);
 	--btn-color: var(--app-color-alt);
 }
 
-.isSecondary {
+.isStyleSecondary {
 	--btn-background: transparent;
 	--btn-border-color: var(--app-color-border);
 	--btn-color: var(--app-color-color);
 }
 
-.isDestructive {
-	--btn-background: var(--app-color-danger);
-	--btn-border-color: var(--app-color-danger);
-	--btn-color: var(--ap-color-text);
+.isStyleIcon {
+  --btn-background: transparent;
+  border: 0 none;
+  padding: 0;
+  cursor: pointer;
 }
 
-.isOutline {
+.isStyleDestructive {
+	--btn-border-color: var(--app-color-danger);
+	--btn-color: var(--app-color-text);
+
+	&:not(.isStyleIcon) {
+		--btn-background: var(--app-color-danger);
+	}
+
+	&.isStyleIcon{
+		--btn-color: var(--app-color-danger);
+	}
+}
+
+.isStyleOutline {
 		--btn-background: transparent;
 		--btn-color: var(--app-color-danger);
 }
 
-.isSimple {
+.isStyleSimple {
 	--btn-color: var(--btn-background);
 	background: none;
 	border: 0 none;

@@ -5,8 +5,16 @@
 
   input {
     background-color: transparent;
-    border-radius: var(--app-border-radius);
-    border: 1px solid var(--app-color-border);
+    border: 0 none;
+    border-bottom: 1px solid var(--app-color-border);
+    font-style: italic;
     padding: 0.25rem 0.5rem;
+    width: 100%;
+  }
+
+  button {
+    align-self: flex-end;
+    margin-top: 0;
+    white-space: nowrap;
   }
 }

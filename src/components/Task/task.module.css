@@ -10,6 +10,8 @@
   gap: 0.5rem;
   padding: 0.5rem 1rem 0.5rem 0;
   position: relative;
+  touch-action: none;
+  user-select: none;
 
   span {
      -webkit-tap-highlight-color: transparent;
@@ -72,4 +74,9 @@
       display: initial;
     }
   }
+}
+
+.taskItemActions {
+	display: flex;
+	gap: 0.5rem;
 }

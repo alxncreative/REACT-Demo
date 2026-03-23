@@ -1,8 +1,8 @@
 import { useRef, useEffect } from "react";
 import CheckboxImg from "@assets/checkbox.svg?react";
-import BinImg from "@assets/bin.svg?react";
 import styles from "./task.module.css";
 import Button from "../Button/button";
+import SVGIcon from "../SVGIcon/SVGIcon";
 
 function Task(props) {
   const baseClass = styles.taskItem;
@@ -15,6 +15,8 @@ function Task(props) {
     onBlur,
     onChange,
     onTextClick,
+    onMoveUp,
+    onMoveDown,
     isUpdating
   } = props;
 
@@ -65,7 +67,17 @@ function Task(props) {
             <span onClick={onTextClick}>{taskText}</span>
           )}
       </div>
-      <Button destructive isSecondary isSimple onClick={onDelete}><BinImg /></Button>
+      <div className={styles.taskItemActions}>
+        <Button isStyleIcon onClick={onMoveUp}>
+          <SVGIcon name="arrowUp" />
+        </Button>
+        <Button isStyleIcon onClick={onMoveDown}>
+          <SVGIcon name="arrowDown" />
+        </Button>
+        <Button isStyleDestructive isStyleSecondary isStyleIcon onClick={onDelete}>
+          <SVGIcon name="bin" />
+        </Button>
+      </div>
     </li>
   );
 }
