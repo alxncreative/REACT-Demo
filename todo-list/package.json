@@ -1,0 +1,26 @@
+{
+  "name": "react-essentials-start",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "classnames": "^2.5.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8",
+    "postcss-import": "^16.1.1",
+    "postcss-nested": "^7.0.2",
+    "vite": "^4.3.9",
+    "vite-plugin-svgr": "^4.5.0"
+  },
+  "type": "module",
+  "keywords": [],
+  "description": ""
+}

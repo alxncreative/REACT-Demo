@@ -1,0 +1,21 @@
+html {
+  background-color: var(--app-color-alt);
+  color: var(--ap-color-text);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+[id="root"] {
+  padding: 2rem 0;
+
+  > * {
+    margin: 0 auto;
+    max-width: calc(90vw - 2rem);
+    padding: 2rem;
+  }
+
+  > main {
+    border: 1px dashed var(--app-color-border);
+    border-radius: var(--app-border-radius);
+  }
+}

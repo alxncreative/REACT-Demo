@@ -1,0 +1,10 @@
+:where(:root) {
+  --app-color-accent: #ffbb34;
+  --app-color-alt: #393f47;
+  --ap-color-text: #d7cfbe;
+  --app-color-text-alt: #8485a0;
+  --app-color-border: #9c7a36;
+  --app-color-danger: #c9232e;
+
+  --app-border-radius: 10px;
+}

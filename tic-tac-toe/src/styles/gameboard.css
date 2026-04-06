@@ -1,0 +1,19 @@
+.game-board {
+	align-items: stretch;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.game-board-row {
+	align-items: center;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.game-board-cell {
+	border: 1px solid #ccc;
+  cursor: pointer;
+  height:40px;
+  width: 40px;
+}
